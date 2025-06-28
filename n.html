@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Main Website</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #e0f7fa, #f4f7fb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #00796b;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #444;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+  </style>
+  <script>
+    // Block direct access
+    if (sessionStorage.getItem("authenticated") !== "true") {
+      alert("❌ Access Denied. Please login first.");
+      window.close();
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Welcome to the Main Website</h1>
+    <p>You have successfully logged in. Enjoy your visit!</p>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function logout() {
+      sessionStorage.removeItem("authenticated");
+      window.close();
+    }
+  </script>
+</body>
+</html>
